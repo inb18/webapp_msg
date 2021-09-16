@@ -9,6 +9,7 @@ Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3310/playe
 Statement st=conn.createStatement();
 int i=st.executeUpdate("DELETE FROM messages WHERE id="+id);
 response.sendRedirect("Creation.jsp");
+//hi
 }
 catch(Exception e)
 {
