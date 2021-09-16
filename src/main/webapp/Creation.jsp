@@ -7,7 +7,7 @@
   <TITLE>insert data using prepared statement </TITLE>
 </HEAD>
     <BODY bgcolor="#ffffcc">
-<font size="+3" color="black"><br>Welcome to MSB Messages</font><br>
+<font size="+3" color="black"><br>Welcome in MSB Messages</font><br>
 <%
 GregorianCalendar cal = new GregorianCalendar();
 out.print(cal.get(Calendar.DATE)+"-");
@@ -28,26 +28,26 @@ out.print(cal.get(Calendar.YEAR));
    String name = request.getParameter("name");
    String content = request.getParameter("content");
 
-   
+
     String connectionURL = "jdbc:mysql://localhost:3310/playerinfo";
-         
+
     Connection connection = null;
-       
+
      PreparedStatement pstatement = null;
 
             ResultSet rs=null;
-         
+
      Class.forName("com.mysql.jdbc.Driver").newInstance();
           int updateQuery = 0;
 
-     	 
+
 	 if(name!=null && content!=null){
-	 		
+
 	     if(name!="" && content!="") {
 	                 try {
               connection = DriverManager.getConnection
               (connectionURL, "root", "mysql");
-                            
+
               String queryString = "INSERT INTO messages(name,content,time) VALUES (?, ?,CURRENT_TIMESTAMP)";
               pstatement = connection.prepareStatement(queryString);
               pstatement.setString(1, name);
@@ -69,7 +69,7 @@ out.print(cal.get(Calendar.YEAR));
 
                }
             finally {
-               
+
                 try{
                 pstatement.close();
                 connection.close();
